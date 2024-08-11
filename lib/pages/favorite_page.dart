@@ -1,5 +1,6 @@
 import 'package:ata_app/components/my_product_tile.dart';
 import 'package:ata_app/models/favorite.dart';
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,13 +16,14 @@ class FavoritePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.primary,
         elevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+        foregroundColor: AppColors.onPrimary,
         title: Text('Favorites'),
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
             // Cart List

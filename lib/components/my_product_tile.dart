@@ -1,3 +1,4 @@
+import 'package:ata_app/components/my_icon_button.dart';
 import 'package:ata_app/config/api_config.dart';
 import 'package:ata_app/models/product.dart';
 import 'package:ata_app/models/favorite.dart';
@@ -80,21 +81,22 @@ class MyProductTile extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('\$' + (product.price ?? '0.0'), style: TextStyle(fontSize: 16, color: Colors.red.shade400),),
+                Text('\$' + (product.price ?? '0.0'), style: TextStyle(fontSize: 14, color: Colors.red.shade400),),
                 Container(
+                  padding: EdgeInsets.all(0),
                   decoration: BoxDecoration(
-                    color: AppColors.background,
+                    // color: AppColors.background,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: IconButton(
-                    onPressed: () => favorites.contains(product)
-                        ? removeFromFavorite(context)
-                        : addToFavorite(context),
-                    icon: Icon(
-                      favorites.contains(product)
-                          ? Icons.favorite
-                          : Icons.favorite_outline,
-                    ),
+                  child: MyIconButton(
+                    onTap: () => favorites.contains(product)
+                          ? removeFromFavorite(context)
+                          : addToFavorite(context),
+                    child:Icon(
+                        favorites.contains(product)
+                            ? Icons.favorite
+                            : Icons.favorite_outline,
+                      ),
                   ),
                 ),
               ],
