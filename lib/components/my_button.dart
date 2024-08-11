@@ -1,3 +1,4 @@
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -17,7 +18,7 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(12)
         ),
         padding: const EdgeInsets.all(15),

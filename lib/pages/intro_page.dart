@@ -29,7 +29,7 @@ class IntroPage extends StatelessWidget {
             Text(
               'Everything in one place',
               style: TextStyle(
-                color: AppColors.text,
+                color: AppColors.textLight,
                 fontSize: 18,
               ),
             ),
