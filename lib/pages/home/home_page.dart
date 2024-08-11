@@ -1,5 +1,5 @@
 import 'package:ata_app/components/my_drawer.dart';
-import 'package:ata_app/components/slide_show.dart';
+import 'package:ata_app/components/my_slide_show.dart';
 import 'package:ata_app/models/product.dart';
 import 'package:ata_app/models/slide.dart';
 import 'package:ata_app/services/product_api.dart';
@@ -19,8 +19,6 @@ class _HomePageState extends State<HomePage> {
   List<Product> products = [];
   bool isLoadingProduct = true;
 
-  
-
   @override
   void initState() {
     super.initState();
@@ -34,16 +32,16 @@ class _HomePageState extends State<HomePage> {
       products = response;
     });
     isLoadingProduct = false;
-
   }
 
-
   Future<List<Slide>> homeSlides = Future.value([]);
+  bool isLoadingSlide = true;
   void fetchHomeSlides() async {
     final response = await SlideApi.fetchHomeSlides();
     setState(() {
       homeSlides = Future.value(response);
     });
+    isLoadingSlide = false;
   }
 
   @override
@@ -73,25 +71,31 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.dark_mode),
+            icon: Icon(Icons.translate),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search, size: 30,),
+            icon: Icon(
+              Icons.search,
+              size: 30,
+            ),
           ),
         ],
       ),
-
       drawer: const MyDrawer(),
-      
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-      
-            SlideShow(futureSlides: homeSlides,),
-      
+            !isLoadingSlide
+                ? MySlideShow(futureSlides: homeSlides)
+                : const Center(
+                    child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: CircularProgressIndicator(),
+                  )),
+            
             Container(
               padding: const EdgeInsets.only(bottom: 10.0),
               width: double.infinity,
@@ -111,8 +115,8 @@ class _HomePageState extends State<HomePage> {
                   const Padding(
                     padding: EdgeInsets.only(left: 10, top: 10, bottom: 5),
                     child: Text('Recommended',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
                   ),
                   SizedBox(
                     height: 340,

@@ -19,6 +19,7 @@ class AppColors {
   static const Color onSecondary = Color(0xFFFFFFFF);
 
   static const Color background = Color(0xFFf1f2f6);
+  static const Color backgroundLight = Color.fromARGB(255, 255, 255, 255);
   static const Color onBackground = Color(0xFF2f3542);
 
   static const Color surface = Color(0xFFFFFFFF);

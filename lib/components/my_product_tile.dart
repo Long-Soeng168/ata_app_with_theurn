@@ -26,7 +26,7 @@ class MyProductTile extends StatelessWidget {
     return Container(
       width: 200,
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.backgroundLight,
         borderRadius: BorderRadius.circular(10),
       ),
       // margin: EdgeInsets.all(10),

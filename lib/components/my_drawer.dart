@@ -1,4 +1,5 @@
 import 'package:ata_app/components/my_list_tile.dart';
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -7,7 +8,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: AppColors.background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -18,7 +19,7 @@ class MyDrawer extends StatelessWidget {
                 child: Icon(
                   Icons.car_rental_rounded,
                   size: 72,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+                  color: AppColors.text,
                 ),
               ),
               
@@ -46,7 +47,7 @@ class MyDrawer extends StatelessWidget {
 
           // exit
           Padding(
-            padding: const EdgeInsets.only(bottom: 30.0),
+            padding: const EdgeInsets.only(bottom: 10.0),
             child: MyListTile(
               text: 'Login',
               icon: Icons.login,

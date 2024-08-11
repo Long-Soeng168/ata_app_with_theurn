@@ -3,15 +3,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ata_app/config/api_config.dart';
 import 'package:ata_app/models/slide.dart';
 
-class SlideShow extends StatefulWidget {
+class MySlideShow extends StatefulWidget {
   final Future<List<Slide>> futureSlides;
 
-  SlideShow({super.key, required this.futureSlides});
+  MySlideShow({super.key, required this.futureSlides});
   @override
-  _SlideShowScreenState createState() => _SlideShowScreenState();
+  _MySlideShowScreenState createState() => _MySlideShowScreenState();
 }
 
-class _SlideShowScreenState extends State<SlideShow> {
+class _MySlideShowScreenState extends State<MySlideShow> {
   
   final CarouselSliderController _carouselController =
       CarouselSliderController();
