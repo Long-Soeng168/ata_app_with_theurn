@@ -135,28 +135,28 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10, top: 10, bottom: 5),
-              child: Text('New Products',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics:
-                    const NeverScrollableScrollPhysics(), // Prevents the grid from scrolling separately
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 8.0,
-                  childAspectRatio: 0.62,
-                ),
-                itemCount: products.length,
-                itemBuilder: (context, index) =>
-                    MyProductTile(product: products[index]),
-              ),
-            ),
+            // const Padding(
+            //   padding: EdgeInsets.only(left: 10, top: 10, bottom: 5),
+            //   child: Text('New Products',
+            //       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            // ),
+            // Padding(
+            //   padding: const EdgeInsets.all(5.0),
+            //   child: GridView.builder(
+            //     shrinkWrap: true,
+            //     physics:
+            //         const NeverScrollableScrollPhysics(), // Prevents the grid from scrolling separately
+            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 2,
+            //       crossAxisSpacing: 8.0,
+            //       mainAxisSpacing: 8.0,
+            //       childAspectRatio: 0.62,
+            //     ),
+            //     itemCount: products.length,
+            //     itemBuilder: (context, index) =>
+            //         MyProductTile(product: products[index]),
+            //   ),
+            // ),
           ],
         ),
       ),
