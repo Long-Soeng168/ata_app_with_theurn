@@ -57,7 +57,7 @@ class MyProductTile extends StatelessWidget {
                       aspectRatio: 1,
                       // child: Icon(Icons.favorite),
                       child: Hero(
-                        tag:  ApiConfig.baseImageUrl + 'products/thumb/' +  product.image,
+                        tag: product.image,
                         child: Image.network(
                           ApiConfig.baseImageUrl + 'products/thumb/' +  product.image,
                           fit: BoxFit.cover,

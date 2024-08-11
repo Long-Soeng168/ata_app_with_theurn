@@ -50,7 +50,7 @@ class ProductDetailPage extends StatelessWidget {
               children: [
                 // Product Image
                 Hero(
-                  tag:  ApiConfig.baseImageUrl + 'products/thumb/' +  product.image,
+                  tag: product.image,
                   child: Image.network(
                     ApiConfig.baseImageUrl + 'products/thumb/' +  product.image,
                     width: double.infinity,
