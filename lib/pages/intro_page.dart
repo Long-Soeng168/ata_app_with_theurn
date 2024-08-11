@@ -1,4 +1,5 @@
 import 'package:ata_app/components/my_button.dart';
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class IntroPage extends StatelessWidget {
             Icon(
               Icons.car_repair_sharp,
               size: 72,
-              color: Theme.of(context).colorScheme.inversePrimary,
+              color: AppColors.text,
             ),
             const SizedBox(height: 25),
             const Text(
@@ -28,7 +29,7 @@ class IntroPage extends StatelessWidget {
             Text(
               'Everything in one place',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: AppColors.text,
                 fontSize: 18,
               ),
             ),

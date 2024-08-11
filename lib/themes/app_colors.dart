@@ -15,5 +15,7 @@ class AppColors {
   static const Color onError = Color(0xFFFFFFFF);
   static Color greyWithOpacity = Colors.grey.withOpacity(0.6);
   static const Color backArrowColor = Colors.white;
+
   static const Color white = Colors.white;
+  static Color text = Colors.grey.shade800;
 }
