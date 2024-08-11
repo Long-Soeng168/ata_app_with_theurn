@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: Colors.grey.shade500,
         onTap: _onItemTapped,
         backgroundColor: AppColors.greyWithOpacity,

@@ -8,7 +8,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: AppColors.background,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -36,7 +36,7 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 20),
             MyButton(
               onTap: () => Navigator.pushNamed(context, '/main_page'),
-              child: Icon(Icons.arrow_forward, color: Colors.white,),
+              child: Icon(Icons.arrow_forward, color: AppColors.onPrimary,),
             ),
           ],
         ),

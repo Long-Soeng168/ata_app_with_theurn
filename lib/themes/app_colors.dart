@@ -24,10 +24,14 @@ class AppColors {
   static const Color surface = Color(0xFFFFFFFF);
   static const Color onSurface = Color(0xFF2f3542);
 
+  static const Color black = Colors.black;
   static const Color white = Colors.white;
-  static Color text = Colors.grey.shade800;
-  static Color textLight = Colors.grey.shade600;
+  static const Color text = Color.fromRGBO(66, 66, 66, 1);
+  static const Color textLight = Color.fromRGBO(117, 117, 117, 1);
 
-static Color greyWithOpacity = Colors.grey.withOpacity(0.6);
-  static const Color backArrowColor = Colors.white;
+  static Color greyWithOpacity = const Color.fromRGBO(158, 158, 158, 1).withOpacity(0.6);
+  static const Color backArrowColor = Color.fromRGBO(255, 255, 255, 1);
+
+  static const Color gradientFrom = Color.fromARGB(255, 144, 202, 249);
+  static const Color gradientTo = Color.fromRGBO(206, 147, 216, 1);
 }

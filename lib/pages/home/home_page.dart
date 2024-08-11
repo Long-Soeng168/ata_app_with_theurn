@@ -52,14 +52,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
-        foregroundColor: Colors.white,
+        foregroundColor: AppColors.onPrimary,
         centerTitle: false,
         title: const Row(
           children: [
             Icon(
               Icons.image_search_outlined,
               weight: 10,
-              color: Colors.white,
+              color: AppColors.onPrimary,
             ),
             SizedBox(
               width: 5,
@@ -81,7 +81,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+
       drawer: const MyDrawer(),
+      
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
