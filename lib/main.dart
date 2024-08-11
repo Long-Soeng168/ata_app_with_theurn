@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightMode,
+      darkTheme: darkMode,
       home: const IntroPage(),
       routes: {
         '/intro_page':(context) => const IntroPage(),

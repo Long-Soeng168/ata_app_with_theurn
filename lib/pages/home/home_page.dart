@@ -4,6 +4,7 @@ import 'package:ata_app/models/product.dart';
 import 'package:ata_app/models/slide.dart';
 import 'package:ata_app/services/product_api.dart';
 import 'package:ata_app/services/slide_api.dart';
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:ata_app/components/my_product_tile.dart';
 
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: AppColors.primary,
         elevation: 0,
         foregroundColor: Colors.white,
         centerTitle: false,
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MyDrawer(),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,7 @@
 import 'package:ata_app/config/api_config.dart';
 import 'package:ata_app/models/product.dart';
 import 'package:ata_app/models/favorite.dart';
+import 'package:ata_app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class MyProductTile extends StatelessWidget {
     return Container(
       width: 200,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.tertiary,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       // margin: EdgeInsets.all(10),
@@ -82,7 +83,7 @@ class MyProductTile extends StatelessWidget {
                 Text('\$' + (product.price ?? '0.0'), style: TextStyle(fontSize: 16, color: Colors.red.shade400),),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.background,
+                    color: AppColors.background,
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: IconButton(
