@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class GarageApi {
 
   static Future<List<Garagepost>> fetchGaragePosts() async {
-    const String apiUrl = '${ApiConfig.baseApiUrl}garages_posts';
+    const String apiUrl = '${ApiConfig.baseApiUrl}/garages_posts';
     final response = await http.get(Uri.parse(apiUrl));
 
     if (response.statusCode == 200) {
@@ -22,7 +22,7 @@ class GarageApi {
 
 
   static Future<List<Garage>> fetchGarages() async {
-  const String apiUrl = '${ApiConfig.baseApiUrl}garages';
+  const String apiUrl = '${ApiConfig.baseApiUrl}/garages';
   final response = await http.get(Uri.parse(apiUrl));
 
   if (response.statusCode == 200) {

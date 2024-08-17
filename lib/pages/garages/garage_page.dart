@@ -1,9 +1,8 @@
-import 'package:ata_app/components/my_app_bar.dart';
 import 'package:ata_app/config/api_config.dart';
 import 'package:ata_app/models/garage.dart';
-import 'package:ata_app/pages/garages/garageDetail.dart';
-import 'package:ata_app/services/garageService.dart';
-import 'package:ata_app/themes/app_colors.dart';
+import 'package:ata_app/pages/garages/garage_detail_page.dart';
+import 'package:ata_app/pages/garages/garage_post_page.dart';
+import 'package:ata_app/services/garage_api.dart';
 import 'package:flutter/material.dart';
 
 class GaragesPage extends StatefulWidget {
@@ -25,7 +24,7 @@ class _GaragesPageState extends State<GaragesPage> {
 
   Future<void> fetchGaragesData() async {
     try {
-      final fetchedGarages = await fetchGarages();
+      final fetchedGarages = await GarageApi.fetchGarages();
       setState(() {
         garages = fetchedGarages;
         filteredGarages = garages;
@@ -62,10 +61,9 @@ class _GaragesPageState extends State<GaragesPage> {
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-              'Garages',
-              style: TextStyle(fontWeight: FontWeight.bold),
+          'Garages',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        
       ),
       body: Column(
         children: [
@@ -105,7 +103,7 @@ class _GaragesPageState extends State<GaragesPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      GarageDetail(garage: garage),
+                                      GarageDetailPage(garage: garage),
                                 ),
                               );
                             },
@@ -118,39 +116,48 @@ class _GaragesPageState extends State<GaragesPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Expanded(
-                                    child: garage.logo != null
-                                        ? Image.network(
-                                            '${ApiConfig.baseImageUrl}garages/logo/${garage.logo}',
-                                            fit: BoxFit.cover,
-                                            width: double.infinity,
-                                            loadingBuilder:
-                                                (BuildContext context,
-                                                    Widget child,
-                                                    ImageChunkEvent?
-                                                        loadingProgress) {
-                                              if (loadingProgress == null)
-                                                return child;
-                                              return Center(
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  value: loadingProgress
-                                                              .expectedTotalBytes !=
-                                                          null
-                                                      ? loadingProgress
-                                                              .cumulativeBytesLoaded /
-                                                          loadingProgress
-                                                              .expectedTotalBytes!
-                                                      : null,
-                                                ),
-                                              );
-                                            },
-                                            errorBuilder: (BuildContext context,
-                                                Object exception,
-                                                StackTrace? stackTrace) {
-                                              return const Center(
-                                                  child: Icon(Icons.error,
-                                                      size: 50));
-                                            },
+                                    child: garage.banner != null
+                                        ? ClipRRect(
+                                            borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(10),
+                                              topLeft: Radius.circular(10),
+                                            ),
+                                            child: Image.network(
+                                              '${ApiConfig.baseImageUrl}garages/banner/${garage.banner}',
+                                              fit: BoxFit.cover,
+                                              width: double.infinity,
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null)
+                                                  return child;
+                                                return Center(
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    value: loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            loadingProgress
+                                                                .expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                              errorBuilder:
+                                                  (BuildContext context,
+                                                      Object exception,
+                                                      StackTrace? stackTrace) {
+                                                return Image.asset(
+                                                  'assets/images/image_default.png',
+                                                  // Path to your default image
+                                                  fit: BoxFit.cover,
+                                                );
+                                              },
+                                            ),
                                           )
                                         : const Center(
                                             child: Icon(Icons.image, size: 50)),
